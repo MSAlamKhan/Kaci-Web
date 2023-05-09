@@ -1,11 +1,35 @@
-import Kaci from "../Assets/images/kacilight.png";
-import Logo from "../Assets/images/Logo.svg";
-import ProfileIcon from "../Assets/images/icons8-male-user-24.png";
-import LockIcon from "../Assets/images/icons8-lock-50.png";
+import Kaci from "../assets/images/kacilight.png";
+import Logo from "../assets/images/Logo.svg";
+import ProfileIcon from "../assets/images/icons8-male-user-24.png";
+import LockIcon from "../assets/images/icons8-lock-50.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { signIn } from "../store/slices/userSlice";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
+  const user = useSelector((state) => state.user.email);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  if (user) {
+    return <Navigate to={"/dashboard"} replace />;
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (email && password && !user) {
+      dispatch(signIn({ email, password }));
+    }
+
+    navigate("/dashboard");
+  };
+
   return (
-    <div className="h-screen flex flex-wrap justify-around items-center">
+    <div className="h-screen flex flex-wrap justify-around items-center bg-[url('/src/assets/images/lglight.png')] dark:bg-[url('/src/assets/images/lgdark.png')] bg-no-repeat bg-cover bg-center bg-origin-border">
       <div className="flex items-end">
         <img className="w-48" src={Logo} alt="Kaci" />
         <div>
@@ -28,7 +52,11 @@ function Login() {
                   Login your account to continue
                 </h2>
               </div>
-              <form className="space-y-3 md:space-y-3" action="#">
+              <form
+                className="space-y-3 md:space-y-3"
+                action="#"
+                onSubmit={handleSubmit}
+              >
                 <div className="">
                   <label htmlFor="email" className="text-xs sr-only">
                     Email
@@ -43,7 +71,9 @@ function Login() {
                       type="email"
                       name="email"
                       id="email"
-                      className="text-xs block w-full pl-10 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-xl focus:ring-[#e53e45] focus:border-[#e53e45] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="text-xs block w-full pl-10 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-xl focus:ring-[#e53e45] focus:border-[#e53e45] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
                       placeholder="Email"
                       required=""
                     />
@@ -64,7 +94,9 @@ function Login() {
                       name="password"
                       id="password"
                       placeholder="Password"
-                      className="text-xs block w-full pl-10 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-xl focus:ring-[#e53e45] focus:border-[#e53e45] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      className="text-xs block w-full pl-10 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-xl focus:ring-[#e53e45] focus:border-[#e53e45] p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
                       required=""
                     />
                   </div>
@@ -98,7 +130,7 @@ function Login() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full text-xs text-white bg-[#e53e45] hover:bg-[#e53e49] focus:ring-2 focus:outline-none focus:ring-red-200 font-medium rounded-xl text-sm px-5 py-3 text-center dark:bg-[#e53e45] dark:hover:bg-[#e53e45] dark:focus:ring-[#e53e45]"
+                  className="w-full text-white bg-[#e53e45] hover:bg-[#e53e49] focus:ring-2 focus:outline-none focus:ring-red-200 font-medium rounded-xl text-sm px-5 py-3 text-center dark:bg-[#e53e45] dark:hover:bg-[#e53e45] dark:focus:ring-[#e53e45]"
                 >
                   Log in
                 </button>

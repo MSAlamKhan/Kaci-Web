@@ -1,11 +1,12 @@
-import Logo from "../Assets/images/Logo.png";
-import KaciHelp from "../Assets/images/Kaci Logo Send copy.png";
-import Fb from "../Assets/images/fb.png";
-import Twitter from "../Assets/images/twitter.png";
-import Insta from "../Assets/images/insta.svg";
-import LinkedIn from "../Assets/images/linkedin.png";
-import PcLockIllustration from "../Assets/images/folder_illustration.svg";
-import Bg from "../Assets/images/background.png";
+import React from "react";
+import Logo from "../assets/images/Logo.png";
+import KaciHelp from "../assets/images/Kaci Logo Send copy.png";
+import Fb from "../assets/images/fb.png";
+import Twitter from "../assets/images/twitter.png";
+import Insta from "../assets/images/insta.svg";
+import LinkedIn from "../assets/images/linkedin.png";
+import PcLockIllustration from "../assets/images/folder_illustration.svg";
+import Bg from "../assets/images/background.png";
 
 function EmailSignupOTP() {
   return (
