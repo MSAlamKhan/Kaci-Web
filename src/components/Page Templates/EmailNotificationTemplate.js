@@ -1,15 +1,14 @@
 import React from "react";
 import Logo from "../assets/images/Logo.png";
-import { Footer } from "../components";
+import { Footer } from "..";
 import PcLockIllustration from "../assets/images/folder_illustration.svg";
-import Bg from "../assets/images/background.png";
 
-function EmailSignupOTP() {
+function EmailSignupOTP({ data }) {
   return (
-    <div className="h-screen text-xs xs:text-sm">
+    <div className="h-screen text-xs xs:text-sm email-notification-bg">
       <main
         className={
-          "flex flex-col items-center mx-6 xs:mx-12 px-8 xs:px-10 mb-12 border-l-[12px] xs:border-l-[18px] sm:border-l-[32px] border-[#e53e45] space-y-3 md:space-y-3 "
+          "flex flex-col items-center mx-6 xs:mx-12 px-8 xs:px-10 mb-12 border-l-[12px] xs:border-l-[18px] sm:border-l-[32px] border-[#e53e45] space-y-3 md:space-y-3 bg-transparent"
         }
       >
         <img className="w-64 my-20" src={Logo} alt="Kaci" />

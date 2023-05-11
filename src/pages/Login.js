@@ -29,12 +29,14 @@ function Login() {
   };
 
   return (
-    <div className="h-screen flex flex-wrap justify-around items-center bg-[url('/src/assets/images/lglight.png')] dark:bg-[url('/src/assets/images/lgdark.png')] bg-no-repeat bg-cover bg-center bg-origin-border">
+    <div className="h-screen flex flex-col md:flex-row justify-center md:justify-around items-center bg-[url('/src/assets/images/lglight.png')] dark:bg-[url('/src/assets/images/lgdark.png')] bg-no-repeat bg-cover bg-center bg-origin-border">
       <div className="flex items-end">
-        <img className="w-48" src={Logo} alt="Kaci" />
+        <img className="w-24 md:w-40 lg:w-48" src={Logo} alt="Kaci" />
         <div>
-          <h1 className="font-bold text-9xl opacity-90">Kaci</h1>
-          <h1 className="text-xl font-semibold pl-2 opacity-90">
+          <h1 className="font-bold text-6xl md:text-8xl lg:text-9xl opacity-90">
+            Kaci
+          </h1>
+          <h1 className="text-xs md:text-lg lg:text-xl font-semibold pl-2 opacity-90">
             Administrator
           </h1>
         </div>

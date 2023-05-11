@@ -8,6 +8,8 @@ import {
 import { Login, Dashboard, EmailSignupOTP } from "./pages";
 import { useSelector } from "react-redux";
 import { AdminLayout } from "./components";
+import TravelSafe from "./pages/TravelSafe";
+import Emergency from "./pages/Emergency";
 
 function App() {
   const user = useSelector((state) => state.user.email);
@@ -26,6 +28,8 @@ function App() {
         >
           <Route index path="/dashboard" element={<Dashboard />} />
         </Route>
+        <Route path="/travel-safe" element={<TravelSafe />} />
+        <Route path="/emergency" element={<Emergency />} />
         <Route path="email-signup-otp" element={<EmailSignupOTP />} />
       </Routes>
     </Router>

@@ -28,7 +28,26 @@ import {
   AiFillInfoCircle,
   AiFillCheckCircle,
 } from "react-icons/ai";
+import NigerianFlag from "../assets/images/nigeriaflag.png";
+import ArgentinaFlag from "../assets/images/argentina-flag-icon.png";
+import AustraliaFlag from "../assets/images/australia-flag-icon.png";
+import ArubaFlag from "../assets/images/aruba-flag-icon.png";
+import BosniaAndHerzegovinaFlag from "../assets/images/bosnia-and-herzegovina-flag-icon.png";
+import BangladeshFlag from "../assets/images/bangladesh-flag-icon.png";
+import BahrainFlag from "../assets/images/bahrain-flag-icon.png";
+import BermudaFlag from "../assets/images/bermuda-flag-icon.png";
+import BeninFlag from "../assets/images/benin-flag-icon.png";
+import BoliviaFlag from "../assets/images/bolivia-flag-icon.png";
+import BrazilFlag from "../assets/images/brazil-flag-icon.png";
+import BahamasFlag from "../assets/images/bahamas-flag-icon.png";
 
+// Users Breakdown
+export const usersBreakdown = [
+  { name: "Total users", value: "500,000" },
+  { name: "Verified users", value: "100,000" },
+];
+
+// Main NavLinks
 export const mainNavlinks = [
   {
     title: "Dashboard",
@@ -245,16 +264,32 @@ export const moreNavLinks = [
 
 // Languages
 export const countries = [
-  { title: "Nigeria", flag: null },
-  { title: "Argentina", flag: null },
-  { title: "Australia", flag: null },
-  { title: "Aruba", flag: null },
-  { title: "Bosnia and Herzegovina", flag: null },
-  { title: "Bangladesh", flag: null },
-  { title: "Bahrain", flag: null },
-  { title: "Bermuda", flag: null },
-  { title: "Benin", flag: null },
-  { title: "Bolivia, Plurinational...", flag: null },
-  { title: "Brazil", flag: null },
-  { title: "Bahamas", flag: null },
+  { title: "Nigeria", flag: NigerianFlag },
+  { title: "Argentina", flag: ArgentinaFlag },
+  { title: "Australia", flag: AustraliaFlag },
+  { title: "Aruba", flag: ArubaFlag },
+  { title: "Bosnia and Herzegovina", flag: BosniaAndHerzegovinaFlag },
+  { title: "Bangladesh", flag: BangladeshFlag },
+  { title: "Bahrain", flag: BahrainFlag },
+  { title: "Bermuda", flag: BermudaFlag },
+  { title: "Benin", flag: BeninFlag },
+  { title: "Bolivia, Plurinational...", flag: BoliviaFlag },
+  { title: "Brazil", flag: BrazilFlag },
+  { title: "Bahamas", flag: BahamasFlag },
 ];
+
+// Themes
+export const theme = {
+  yellow: "text-yellow-600 bg-yellow-600/10",
+  indigo: "text-indigo-600 bg-indigo-600/10",
+  purple: "text-purple-600 bg-purple-600/10",
+  violet: "text-violet-600 bg-violet-600/10",
+  green: "text-green-600 bg-green-600/10",
+  cyan: "text-cyan-600 bg-cyan-600/10",
+  sky: "text-sky-600 bg-sky-600/10",
+  pink: "text-pink-600 bg-pink-600/10",
+  blue: "text-blue-600 bg-blue-600/10",
+  lime: "text-lime-600 bg-lime-600/10",
+  rose: "text-rose-600 bg-rose-600/10",
+  red: "text-red-600 bg-red-600/10",
+};

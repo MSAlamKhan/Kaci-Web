@@ -4,10 +4,10 @@ import Navbar from "./Navbar";
 
 const AdminLayout = () => {
   return (
-    <div className="flex">
+    <div className="relative h-full flex">
       <Navbar />
 
-      <div className="w-full p-9 pt-7 bg-[#F2F2F2]">
+      <div className="h-full w-full pt-9 p-3 md:px-5 bg-[#F2F2F2]">
         <Outlet />
       </div>
     </div>

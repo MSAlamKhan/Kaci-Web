@@ -3,33 +3,67 @@ import Logo from "../assets/images/logo_white.png";
 import { Link, NavLink } from "react-router-dom";
 import { mainNavlinks, moreNavLinks } from "../constants/data";
 import { GoChevronRight } from "react-icons/go";
+import { FaBars } from "react-icons/fa";
+import { VscClose } from "react-icons/vsc";
 
 const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
   return (
-    <nav className="w-full h-full max-w-[250px] pb-6 bg-[#222222] text-white">
-      {/* Logo */}
-      <Link
-        to="/travel-safe"
-        className="flex flex-col justify-center items-center mx-auto py-4"
+    <>
+      {/* Menu btn (bars icon) */}
+      <button
+        onClick={() => setToggle(true)}
+        className={`md:hidden absolute lg:hidden top-3 left-3 text-[#222222]`}
       >
-        <img className="w-1/2" src={Logo} alt="Kaci" />
-        <h2 className="relative -top-1 left-4 text-[8px] font-medium">
-          Administrator
-        </h2>
-      </Link>
+        <FaBars />
+      </button>
 
-      {/* Navbar links */}
-      <div className="font-poppins">
-        {mainNavlinks.map((link) => (
-          <NavItem key={link.title} {...link} />
-        ))}
+      {/* Backdrop (when menu opens) */}
+      <div
+        onClick={() => setToggle(false)}
+        className={`${
+          toggle ? "" : "hidden"
+        } md:hidden fixed inset-0 bg-black/40 z-[2]`}
+      />
 
-        <h3 className="mt-5 ml-5">More</h3>
-        {moreNavLinks.map((link) => (
-          <NavItem key={link.title} {...link} />
-        ))}
-      </div>
-    </nav>
+      {/* Navbar */}
+      <nav
+        className={`h-full md:h-auto absolute md:static top-0 left-0 ${
+          toggle ? "" : "-translate-x-full md:-translate-x-0"
+        } max-md:transition-all max-md:duration-300 w-full max-w-[250px] pb-6 bg-[#222222] text-white z-[3]`}
+      >
+        {/* close btn (inside navbar) */}
+        <button
+          onClick={() => setToggle(false)}
+          className="md:hidden text-white mt-3 ml-3 text-lg"
+        >
+          <VscClose />
+        </button>
+
+        {/* Logo */}
+        <Link
+          to="/travel-safe"
+          className="flex flex-col justify-center items-center mx-auto pb-4 md:py-4"
+        >
+          <img className="w-1/2" src={Logo} alt="Kaci" />
+          <h2 className="relative -top-1 left-4 text-[8px] font-medium">
+            Administrator
+          </h2>
+        </Link>
+
+        {/* Navbar links */}
+        <div className="font-poppins">
+          {mainNavlinks.map((link) => (
+            <NavItem key={link.title} {...link} />
+          ))}
+
+          <h3 className="mt-5 ml-5">More</h3>
+          {moreNavLinks.map((link) => (
+            <NavItem key={link.title} {...link} />
+          ))}
+        </div>
+      </nav>
+    </>
   );
 };
 

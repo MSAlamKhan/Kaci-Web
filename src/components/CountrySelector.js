@@ -5,10 +5,7 @@ import { DropdownContainer } from "./helpers";
 
 const CountrySelector = () => {
   const [toggle, setToggle] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState({
-    title: "Nigeria",
-    flag: null,
-  });
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
 
   const handleSelect = (data) => {
     return setSelectedCountry(data);
@@ -19,25 +16,33 @@ const CountrySelector = () => {
       onClick={() => setToggle(!toggle)}
       className="relative flex items-center text-xs bg-[#F7F7F7] p-2 py-1.5 rounded-[6px] cursor-pointer"
     >
-      <span>{selectedCountry.flag}</span>
-      <span className="pl-1.5 pr-1">{selectedCountry.title}</span>
+      <img
+        className="w-4 h-auto"
+        src={selectedCountry.flag}
+        alt={selectedCountry.title + " flag"}
+      />
+      <span className="pl-1.5 pr-1 text-[10px]">{selectedCountry.title}</span>
       <span className={toggle ? "rotate-180" : ""}>
         <GoChevronDown />
       </span>
 
       {/* Dropdown */}
       {toggle && (
-        <DropdownContainer extraStyles="text-left">
+        <DropdownContainer extraStyles="text-left translate-x-[57%] xs:translate-x-0">
           {countries.map((data, idx) => (
             <div
               onClick={() => handleSelect(data)}
-              className={`p-1 pr-8 cursor-pointer hover:text-gray-500 ${
-                idx !== countries.length ? "border-b border-[#E7E7E7]" : ""
+              className={`flex items-center p-1 pr-8 cursor-pointer hover:text-gray-500 ${
+                idx !== countries.length ? "border-b border-[#f2f2f2]" : ""
               }`}
               role="option"
             >
-              <span>{data.flag}</span>
-              <span className="pl-2 text-[10px]">{data.title}</span>
+              <img
+                className="w-4 h-auto"
+                src={data.flag}
+                alt={data.title + " flag"}
+              />
+              <span className="pl-4 text-[10px]">{data.title}</span>
             </div>
           ))}
         </DropdownContainer>
