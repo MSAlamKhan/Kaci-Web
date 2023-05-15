@@ -1,8 +1,8 @@
 import React from "react";
-import Logo from "../assets/images/Logo.png";
-import TSMap from "../assets/images/travel-safe-map.png";
+import Logo from "../../assets/images/Logo.png";
+import TSMap from "../../assets/images/travel-safe-map.png";
 import { FaFileAudio, FaUser } from "react-icons/fa";
-import { Footer } from "../components";
+import { Footer } from "..";
 
 const EmergencyAndTravelSafeTemplate = ({
   data,

@@ -78,6 +78,7 @@ function Login() {
                       value={email}
                       placeholder="Email"
                       required=""
+                      tabIndex={0}
                     />
                   </div>
                 </div>

@@ -23,7 +23,7 @@ import { MdSos } from "react-icons/md";
 
 const Dashboard = () => {
   return (
-    <main className="w-full font-poppins">
+    <main className="w-full font-poppins bg-[#F2F2F2] pt-9 p-3 md:px-5">
       {/* Header */}
       <header className="flex flex-col xs:flex-row justify-between">
         <h1 className="font-semibold text-xl text-[#44403C] ">Dashboard</h1>

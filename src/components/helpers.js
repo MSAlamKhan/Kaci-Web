@@ -6,7 +6,7 @@ import { FaUser, FaUserCheck } from "react-icons/fa";
 export const DropdownContainer = ({ children, extraStyles = "" }) => {
   return (
     <div
-      className={`absolute min-w-max top-[120%] right-0 border border-[#BBBBBB] bg-white/60 dropdownBackdrop shadow-sm px-2 rounded-md z-[1] ${extraStyles}`}
+      className={`absolute min-w-max top-[120%] right-0 border border-[#BBBBBB] bg-[6b6666]/60 dropdownBackdrop shadow-sm px-2 rounded-md z-[1] ${extraStyles}`}
     >
       {children}
     </div>
@@ -144,13 +144,11 @@ const RequestCard = ({
         </div>
       </div>
       <div className="ml-10 mt-2 text-[8px]">
-        {details.map(({ title, value }) => (
-          <>
-            <span className="mb-2 font-medium">
-              {title}: &nbsp; <b>{value}</b>
-            </span>
+        {details.map(({ title, value }, idx) => (
+          <span key={title + idx} className="mb-2 font-medium">
+            {title}: &nbsp; <b>{value}</b>
             <br />
-          </>
+          </span>
         ))}
       </div>
     </div>

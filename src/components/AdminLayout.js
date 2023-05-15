@@ -7,7 +7,7 @@ const AdminLayout = () => {
     <div className="relative h-full flex">
       <Navbar />
 
-      <div className="h-full w-full pt-9 p-3 md:px-5 bg-[#F2F2F2]">
+      <div className="h-full w-full">
         <Outlet />
       </div>
     </div>

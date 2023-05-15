@@ -1,7 +1,7 @@
 import React from "react";
-import Logo from "../assets/images/Logo.png";
+import Logo from "../../assets/images/Logo.png";
 import { Footer } from "..";
-import PcLockIllustration from "../assets/images/folder_illustration.svg";
+import PcLockIllustration from "../../assets/images/folder_illustration.svg";
 
 function EmailSignupOTP({ data }) {
   return (
