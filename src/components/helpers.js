@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { VictoryPie } from "victory";
-import { FaUser, FaUserCheck } from "react-icons/fa";
+import { FaChevronUp, FaUser, FaUserCheck } from "react-icons/fa";
 
 export const DropdownContainer = ({ children, extraStyles = "" }) => {
   return (
@@ -10,6 +10,45 @@ export const DropdownContainer = ({ children, extraStyles = "" }) => {
     >
       {children}
     </div>
+  );
+};
+
+export const DropdownFilter = ({
+  toggle,
+  setToggle,
+  curFilter,
+  title,
+  arr,
+  handleClick,
+}) => {
+  return (
+    <button
+      onClick={setToggle}
+      className={`relative flex items-center text-black ${
+        curFilter.filter === title
+          ? "bg-red-100 hover:bg-red-200 dark:bg-red-200 dark:hover:bg-red-300"
+          : "bg-gray-50 hover:bg-gray-100 dark:bg-gray-500 dark:hover:bg-gray-600"
+      } focus:ring-4 focus:outline-none font-medium rounded-lg text-xs px-4 py-1.5 ml-3 text-center`}
+    >
+      {curFilter.filter === title ? curFilter.value : title}
+      <FaChevronUp className={`${toggle ? "" : "rotate-180"} ml-1`} />
+      {toggle && (
+        <DropdownContainer extraStyles="text-black font-medium text-xs text-left">
+          {arr.map((elem, indx) => (
+            <div
+              key={elem + indx}
+              onClick={() => handleClick(elem)}
+              role="option"
+              className={`${
+                indx !== arr.length - 1 ? "border-b" : ""
+              } p-1 hover:text-gray-600 cursor-pointer`}
+            >
+              {elem}
+            </div>
+          ))}
+        </DropdownContainer>
+      )}
+    </button>
   );
 };
 

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { countries } from "../constants/data";
 import { GoChevronDown } from "react-icons/go";
 import { DropdownContainer } from "./helpers";
 
-const CountrySelector = ({ handleClick }) => {
+const CountrySelector = () => {
   const [toggle, setToggle] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
 
@@ -11,14 +11,10 @@ const CountrySelector = ({ handleClick }) => {
     return setSelectedCountry(data);
   };
 
-  useEffect(() => {
-    handleClick && handleClick(selectedCountry);
-  }, [selectedCountry]);
-
   return (
     <button
       onClick={() => setToggle(!toggle)}
-      className="relative flex items-center text-xs bg-[#F7F7F7] p-2 py-1.5 rounded-[6px] cursor-pointer"
+      className="relative flex items-center text-xs bg-gray-50 hover:bg-gray-100 p-2 py-1.5 rounded-[6px] cursor-pointer"
     >
       <img
         className="w-4 h-auto"

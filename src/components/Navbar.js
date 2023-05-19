@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Logo from "../assets/images/logo_white.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { mainNavlinks, moreNavLinks } from "../constants/data";
 import { GoChevronRight } from "react-icons/go";
 import { FaBars } from "react-icons/fa";
@@ -8,6 +8,12 @@ import { VscClose } from "react-icons/vsc";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const location = useLocation();
+
+  useLayoutEffect(() => {
+    setToggle(false);
+  }, [location]);
+
   return (
     <>
       {/* Menu btn (bars icon) */}
@@ -28,7 +34,8 @@ const Navbar = () => {
 
       {/* Navbar */}
       <nav
-        className={`h-full md:h-auto absolute md:static top-0 left-0 ${
+        id="navbar"
+        className={`h-auto md:h-auto absolute md:static top-0 left-0 ${
           toggle ? "" : "-translate-x-full md:-translate-x-0"
         } max-md:transition-all max-md:duration-300 w-full max-w-[250px] pb-6 bg-[#222222] text-white z-[3]`}
       >
@@ -73,7 +80,7 @@ const NavItem = ({ title, type, icon, path, list, chevron }) => {
   if (type === "dropdown") {
     return (
       <>
-        <div
+        <NavLink
           onClick={() => setToggle(!toggle)}
           className={`flex items-center p-1 py-1.5 pl-5 pr-2 text-white font-medium text-xs hover:bg-[#e14146] cursor-pointer`}
         >
@@ -84,7 +91,7 @@ const NavItem = ({ title, type, icon, path, list, chevron }) => {
               className={`${toggle ? "rotate-90" : ""} ml-auto`}
             />
           )}
-        </div>
+        </NavLink>
         {toggle && (
           <ul className="text-white marker:text-white list-outside list-disc pl-14 ml-3">
             {list.map(({ title, path }) => (
